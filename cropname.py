@@ -29,4 +29,4 @@ folder_path = 'your_folder_path'
 max_length = 10
 
 # 裁剪文件名
-truncate_filenames(r"C:\Users\scaaa\Downloads\Compressed\tooth.v4i.coco-segmentation\labels", 7)
+truncate_filenames(r"D:\tempdataset\tooth.v4i.coco\train", 7)

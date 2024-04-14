@@ -23,8 +23,8 @@ def batch_resize_images(input_folder, output_folder, target_size=(512, 512)):
             print(f"处理文件 {input_path} 时出错: {e}")
 
 # 输入文件夹路径和输出文件夹路径
-input_folder_path = r"C:\Users\scaaa\Downloads\Compressed\tooth.v4i.coco-segmentation\train"
-output_folder_path = r"C:\Users\scaaa\Downloads\Compressed\tooth.v4i.coco-segmentation\train512"
+input_folder_path = r"D:\tempdataset\TTADataset\Retina\test\mask"
+output_folder_path = r"D:\tempdataset\TTADataset\Retina\test\mask512"
 
 # 批量缩放图片
 batch_resize_images(input_folder_path, output_folder_path)

@@ -25,10 +25,10 @@ def convert_coco2mask_show(image_id):
     plt.imsave(os.path.join(save_dir, new_file_name), mask)
 
 if __name__ == '__main__':
-    Dataset_dir = r"C:\Users\scaaa\Downloads\Compressed\tooth.v4i.coco-segmentation\train"
+    Dataset_dir = r"D:\tempdataset\tooth.v4i.coco\train"
     coco = COCO(os.path.join(Dataset_dir, '_annotations.coco.json'))
     img_dir = Dataset_dir
-    save_dir = r"C:\Users\scaaa\Downloads\Compressed\tooth.v4i.coco-segmentation\labels"
+    save_dir = r"D:\tempdataset\tooth.v4i.coco\mask"
     if not os.path.isdir(save_dir):
         os.makedirs(save_dir)
     image_ids = list(range(300000))

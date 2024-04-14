@@ -20,7 +20,7 @@ savepath = "coco_mask/"
 '''
 # coco有80类，这里写要进行二值化的类的名字
 # 其他没写的会被当做背景变成黑色
-classes_names = ['car']  # 自行修改标签
+classes_names = ['target']  # 自行修改标签
 
 datasets_list = ['coco']
 

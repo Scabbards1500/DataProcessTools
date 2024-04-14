@@ -67,8 +67,8 @@ def DatasetSplit(data_dir, output_dir, imgname,labelname,makecsv):
     print("数据集划分完成！")
 
 # 设置路径
-data_dir = r'D:\tempdataset\CHASEDB1'
-output_dir = r'D:\tempdataset\TTADataset\CHASE'
-imgfolder = 'images512'
-lablefolder = 'masks5122'
+data_dir = r'D:\tempdataset\Retina\whole'
+output_dir = r'D:\tempdataset\TTADataset\Retina'
+imgfolder = 'images'
+lablefolder = 'masks'
 DatasetSplit(data_dir,output_dir,imgfolder,lablefolder,False)
