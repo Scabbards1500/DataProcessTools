@@ -1,7 +1,9 @@
 import os
 
 
-def truncate_filenames(folder_path, max_length):
+import os
+
+def truncate_filenames(folder_path, new_folder_path, max_length):
     # 遍历文件夹中的所有文件
     for filename in os.listdir(folder_path):
         # 构建文件的完整路径
@@ -17,16 +19,22 @@ def truncate_filenames(folder_path, max_length):
                 truncated_name = name[:max_length] + extension
 
                 # 构建新的文件路径
-                new_file_path = os.path.join(folder_path, truncated_name)
+                new_file_path = os.path.join(new_folder_path, truncated_name)
 
-                # 重命名文件
-                os.rename(file_path, new_file_path)
-                print(f"Renamed '{filename}' to '{truncated_name}'")
+                # 检查新文件路径是否已经存在
+                if os.path.exists(new_file_path):
+                    print(f"File '{new_file_path}' already exists. Skipping...")
+                else:
+                    # 重命名文件
+                    os.rename(file_path, new_file_path)
+                    print(f"Renamed '{filename}' to '{truncated_name}'")
+            else:
+                print(f"File '{filename}' does not need truncation.")
+
 
 
 # 指定文件夹路径和最大文件名长度
-folder_path = 'your_folder_path'
-max_length = 10
+max_length = 7
 
 # 裁剪文件名
-truncate_filenames(r"D:\tempdataset\tooth.v4i.coco\train", 7)
+truncate_filenames(r"D:\tempdataset\tooth_aug.v2i.coco\image", r"D:\tempdataset\tooth_aug.v2i.coco\image2",max_length)

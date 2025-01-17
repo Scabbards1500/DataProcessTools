@@ -17,7 +17,8 @@ def batch_remove_string_in_filenames(folder_path, string_to_remove):
         # 如果指定的字符串在文件名中，则进行替换
         if string_to_remove in filename:
             # 构造新文件名，去除指定字符串
-            new_filename = filename.replace(string_to_remove, '')
+            new_filename = filename.replace(string_to_remove, 'image_')
+            print("yes")
             # 构造旧文件的完整路径
             old_filepath = os.path.join(folder_path, filename)
             # 构造新文件的完整路径
@@ -47,7 +48,7 @@ def batch_add_string_in_filenames(folder_path, string_to_add):
         # 分割文件名和扩展名
         name, ext = os.path.splitext(filename)
         # 构造新文件名, 在文件名和扩展名之间添加指定字符串
-        new_filename = f'{name}{string_to_add}{ext}'
+        new_filename = f'{string_to_add}{name}{ext}'
         # 构造旧文件的完整路径
         old_filepath = os.path.join(folder_path, filename)
         # 构造新文件的完整路径
@@ -63,12 +64,12 @@ def batch_add_string_in_filenames(folder_path, string_to_add):
 
 
 
-folder_path = r'D:\tempdataset\TTADataset\Retina\train\mask5122'
+folder_path = r'D:\tempdataset\TTADataset\CRHR\train\masks2'
 
 # #move string
-# string_to_remove = '.jpg'
-# batch_remove_string_in_filenames(folder_path, string_to_remove)
+string_to_remove = 'mask_'
+batch_remove_string_in_filenames(folder_path, string_to_remove)
 
 #add string
-string_to_add = "_rtrain"
-batch_add_string_in_filenames(folder_path,string_to_add)
+# string_to_add = "_OUT"
+# batch_add_string_in_filenames(folder_path,string_to_add)

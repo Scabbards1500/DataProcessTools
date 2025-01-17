@@ -15,8 +15,8 @@ def imgformatconversion(input_folder, output_folder):
 
         # 这里是处理方式
         # to_bmp(input_path,output_path)
-        # to_jpeg(input_path,output_folder)
-        to_png(input_path,output_folder)
+        to_jpeg(input_path,output_folder)
+        # to_png(input_path,output_folder)
 
 
 def to_bmp(input_path, output_path):
@@ -28,6 +28,9 @@ def to_bmp(input_path, output_path):
 
 def to_jpeg(input_path, output_path):
     image = Image.open(input_path)
+    # 如果是RGBA模式，将其转换为RGB模式
+    if image.mode == 'RGBA':
+        image = image.convert('RGB')
 
     # 构建输出文件名
     base_name = os.path.basename(input_path).split('.')[0]
@@ -52,6 +55,6 @@ def to_png(input_path, output_path):
 
 
 if __name__ == '__main__':
-    input_image_path = r"D:\tempdataset\test\CHASE\test\input"
-    output_image_path = r"D:\tempdataset\test\CHASE\test\input2"
+    input_image_path = r"D:\tempdataset\tooth_new\test_aug"
+    output_image_path = r"D:\tempdataset\tooth_new\test_aug2"
     imgformatconversion(input_image_path, output_image_path)

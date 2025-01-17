@@ -66,6 +66,6 @@ def binary_to_gray(inputpath,outputpath):
 
 
 # 图像文件夹路径
-image_path = r"D:\tempdataset\TTADataset\Retina\test\mask512"
-output_path = r"D:\tempdataset\TTADataset\Retina\test\mask5122"
+image_path = r"D:\tempdataset\NUCLEI\masks512"
+output_path = r"D:\tempdataset\NUCLEI\masks5122"
 labelprocess(image_path, output_path)
