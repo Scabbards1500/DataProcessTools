@@ -37,6 +37,6 @@ def convert_json_to_mask(json_folder, output_folder):
 
 
 # 调用函数
-json_folder = r"D:\tempdataset\tooth_seg_new"  # 替换为你的 JSON 文件夹路径
-output_folder = r"D:\tempdataset\tooth_seg_new_full"  # 替换为输出路径
+json_folder = r"C:\Users\scaaa\Documents\WeChat Files\wxid_hwdmt6ywxzcy22\FileStorage\File\2025-02\tooth_seg_edit\json"  # 替换为你的 JSON 文件夹路径
+output_folder = r"C:\Users\scaaa\Documents\WeChat Files\wxid_hwdmt6ywxzcy22\FileStorage\File\2025-02\tooth_seg_edit\masks"  # 替换为输出路径
 convert_json_to_mask(json_folder, output_folder)

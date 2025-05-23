@@ -2,9 +2,9 @@ import cv2
 import os
 
 # 输入和输出文件夹路径
-images_folder = r"D:\tempdataset\tooth_new\tooth_seg_new\images"
-masks_folder = r"D:\tempdataset\tooth_new\tooth_seg_new\masks"
-output_folder = r"D:\tempdataset\tooth_new\tooth_seg_new\output"
+images_folder = r"C:\Users\scaaa\Documents\WeChat Files\wxid_hwdmt6ywxzcy22\FileStorage\File\2025-02\tooth_seg_edit\images"
+masks_folder = r"C:\Users\scaaa\Documents\WeChat Files\wxid_hwdmt6ywxzcy22\FileStorage\File\2025-02\tooth_seg_edit\masks"
+output_folder = r"C:\Users\scaaa\Documents\WeChat Files\wxid_hwdmt6ywxzcy22\FileStorage\File\2025-02\tooth_seg_edit\output"
 
 # 如果输出文件夹不存在，则创建它
 os.makedirs(output_folder, exist_ok=True)

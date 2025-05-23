@@ -39,8 +39,8 @@ def batch_resize_images(input_folder, output_folder, target_size=(512, 512), cro
 
 
 # 输入文件夹路径和输出文件夹路径
-input_folder_path = r"D:\tempdataset\NUCLEI\masks_ori"
-output_folder_path = r"D:\tempdataset\NUCLEI\masks512"
+input_folder_path = r"D:\Files\HKUST\teeth"
+output_folder_path = r"D:\Files\HKUST\teeth2"
 
 # 批量缩放图片
 batch_resize_images(input_folder_path, output_folder_path,crop=False)

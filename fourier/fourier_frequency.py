@@ -3,7 +3,7 @@ import cv2
 from matplotlib import pyplot as plt
 
 # 读取图像并转换为浮点型
-img = cv2.imread(r"D:\tempdataset\TTADataset\CHASE_RITE_HRF_RETINA\all\images\28_rtrain.png", 0)
+img = cv2.imread(r"D:\tempdataset\tooth_seg_new_split_data\train\images\61-front.png", 0)
 img_float32 = np.float32(img)
 
 # 傅里叶变换
@@ -11,12 +11,12 @@ dft = cv2.dft(img_float32, flags=cv2.DFT_COMPLEX_OUTPUT)
 dft_shift = np.fft.fftshift(dft)
 
 # 计算频谱的幅度（用于可视化）
-magnitude_spectrum = 20 * np.log(cv2.magnitude(dft_shift[:, :, 0], dft_shift[:, :, 1]) + 1)
+magnitude_spectrum = 10 * np.log(cv2.magnitude(dft_shift[:, :, 0], dft_shift[:, :, 1]) + 1)
 
 # 图像尺寸
 rows, cols = img.shape
 crow, ccol = int(rows / 2), int(cols / 2)  # 中心位置
-mask_range = 20
+mask_range = 10
 
 
 # 高通滤波

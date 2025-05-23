@@ -58,7 +58,6 @@ def change_fourier(input_folder,output_folder,fre_m_all):
 
 
 input_folder1 = r"D:\tempdataset\TTADataset\RITE\train\images512"
-
 input_folder2 = r"D:\tempdataset\TTADataset\HRF\test\images512"
 output_folder = r"D:\tempdataset\TTADataset\HRF\test\images_ftrans"
 
@@ -67,7 +66,3 @@ mean_fre_m = gain_fourier(input_folder1)
 
 # 处理图像并保存到输出文件夹
 change_fourier(input_folder2, output_folder, mean_fre_m)
-
-
-
-

@@ -39,11 +39,11 @@ def resize_images(input_dir, output_dir, scale_factor):
 
 if __name__ == "__main__":
     # Example usage
-    input_directory = r"D:\tempdataset\tooth_photo\selected_photo\Train_ori"  # Replace with your input directory
-    output_directory = r"D:\tempdataset\tooth_photo\selected_photo\Train"  # Replace with your output directory
+    input_directory = r"D:\Files\HKUST\teeth"  # Replace with your input directory
+    output_directory = r"D:\Files\HKUST\teeth2"  # Replace with your output directory
     scale = 0.1  # Replace with your desired scale factor (e.g., 0.1 for 1/10 size)
 
     resize_images(input_directory, output_directory, scale)
-    input_directory2 = r"D:\tempdataset\tooth_photo\selected_photo\Val_ori"  # Replace with your input directory
-    output_directory2 = r"D:\tempdataset\tooth_photo\selected_photo\Val"  # Replace with your output directory
-    resize_images(input_directory2, output_directory2, scale)
+    # input_directory2 = r"D:\tempdataset\tooth_photo\selected_photo\Val_ori"  # Replace with your input directory
+    # output_directory2 = r"D:\tempdataset\tooth_photo\selected_photo\Val"  # Replace with your output directory
+    # resize_images(input_directory2, output_directory2, scale)
