@@ -1,34 +1,55 @@
-import pandas as pd
+import json
 
-# 读取CSV文件
-file_path = r"C:\Users\scaaa\Downloads\CPT_mismatched.csv"  # 替换为你的文件路径
-df = pd.read_csv(file_path)
+import json
 
-# 定义一个函数来提取F1分数
+def filter_related_imgs(input_file, output_file, keep_n):
+    # 读取原始 JSON
+    with open(input_file, "r", encoding="utf-8") as f:
+        data = json.load(f)
 
-# extract = 'F1 score:'
-# extract = 'Mismatch percentage: '
-extract = 'Precision score:'
+    # 如果是单个对象，包装成列表方便统一处理
+    if isinstance(data, dict):
+        data = [data]
+
+    for item in data:
+        premise = item.get("Translated Premise", {})
+        related_imgs = {k: v for k, v in premise.items() if k.startswith("related_img")}
+
+        # 按数字顺序排序
+        sorted_related = dict(sorted(
+            related_imgs.items(),
+            key=lambda x: int(x[0].replace("related_img", ""))
+        ))
+
+        # 截取前 keep_n 个
+        filtered_related = dict(list(sorted_related.items())[:keep_n])
+
+        # 删除原来的 related_img
+        for key in list(premise.keys()):
+            if key.startswith("related_img"):
+                premise.pop(key)
+
+        # 添加回去
+        premise.update(filtered_related)
+
+    # 写出新的 JSON
+    with open(output_file, "w", encoding="utf-8") as f:
+        # 如果原来是单个对象，就只保存第一个
+        if len(data) == 1:
+            json.dump(data[0], f, ensure_ascii=False, indent=4)
+        else:
+            json.dump(data, f, ensure_ascii=False, indent=4)
+
+    print(f"生成完成，新文件保存到 {output_file}")
 
 
-def extract_f1_score(text):
-    if pd.isna(text) or extract not in text:
-        return None
-    # 提取F1分数部分
-    f1_line = [line for line in text.split('\n') if extract in line]
-    if f1_line:
-        # return float(f1_line[0].split(':')[1].strip())
-        return (f1_line[0].split(':')[1].strip())
-    return None
 
-# 只保留F1分数数据
-f1_data = df.copy()
+if __name__ == "__main__":
+    # 输入文件路径
+    input_path = r"D:\tempdataset\Memes\result\ablation_study\num of imgs\HarM_planner_output10.json"
+    # 输出文件路径
+    output_path = r"D:\tempdataset\Memes\result\ablation_study\num of imgs\HarM_planner_output9.json"
+    # 保留的 related_img 数量
+    keep_number = 9
 
-# 提取每个列中的F1分数
-for column in ['Zero-shot', 'One-shot', 'Few-shot', 'Dynamic']:
-    f1_data[column] = df[column].apply(extract_f1_score)
-
-# 打印结果
-print(f1_data)
-output_path = 'F1_2.csv'  # 你可以在这里指定保存路径和文件名
-f1_data.to_csv(output_path, index=False)
+    filter_related_imgs(input_path, output_path, keep_number)
